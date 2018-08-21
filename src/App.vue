@@ -1,28 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-container>
+      <el-header>
+        <Header />
+      </el-header>
+      <el-main>
+        <el-row>
+          <el-col :span="12"><SourceFolderColumn /></el-col>
+          <el-col :span="12"><TargetFolderColumn /></el-col>
+        </el-row>
+      </el-main>
+    </el-container>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import SourceFolderColumn from './components/SourceFolderColumn.vue'
+import TargetFolderColumn from './components/TargetFolderColumn.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Header,
+    SourceFolderColumn,
+    TargetFolderColumn
   }
 }
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+body {
+  margin: 0;
 }
 </style>
