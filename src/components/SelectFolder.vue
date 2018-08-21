@@ -37,6 +37,7 @@ export default {
           files: []
         }
         this.readDirectory(event.target.files[0].path, this.folder, () => {
+          this.folder.name = event.target.files[0].name
           this.$emit('folder-change', this.folder)
         })
       }

@@ -1,9 +1,18 @@
 <template>
     <div>
         <SelectFolder v-on:folder-change="test" />
-        <div>
-            <FolderViewer v-if="folderInfo" :depth="0" :folderInfo="folderInfo"/>
-        </div>
+        <el-row>
+          <el-col :span="24">
+            <ul class="folder-list">
+              <FolderViewer
+                v-if="folderInfo"
+                :depth="0"
+                :folderInfo="folderInfo"
+                :name="folderInfo.name"
+                :isFolder="true"/>
+            </ul>
+          </el-col>
+        </el-row>
     </div>
 </template>
 
@@ -24,7 +33,15 @@ export default {
   methods: {
     test: function (folder) {
       this.folderInfo = Object.create(folder)
+      console.log(this.folderInfo)
     }
   }
 }
 </script>
+<style lang="scss">
+.folder-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+</style>
